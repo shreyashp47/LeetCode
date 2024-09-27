@@ -8,8 +8,6 @@ class Solution {
             val temp = a + b
             a = b
             b = temp 
-
-
         }
         return b
     }
