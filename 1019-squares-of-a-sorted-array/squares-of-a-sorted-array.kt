@@ -1,31 +1,22 @@
 class Solution {
       fun sortedSquares(nums: IntArray): IntArray {
-        
-        var result = IntArray(nums.size)
+        val size = nums.size
+
         var left = 0
-        var pos = nums.size-1
-        var right = nums.size-1
-        
-        
-       while(left <= right){
-          	val l = nums[left] * nums[left] 
-         	val  r = nums[right] * nums[right] 
-           println("sqare $l $r")
-           if(l < r){ 
-               result[pos] = r
-               right--
-           }else{  
-               result[pos] = l
-               left++
-               
-           }
-           println(result[pos])
-           pos--
-           
-           
-       }
-        
+        var right = nums.size - 1
+        val result = IntArray(size)
+
+        var index = nums.size - 1
+        while (left <= right) {
+            if (nums[left] * nums[left] <= nums[right] * nums[right]) {
+                result[index] = nums[right] * nums[right]
+                right--
+            } else {
+                result[index] = nums[left] * nums[left]
+                left++
+            }
+            index--
+        }
         return result
-        
     }
 }
