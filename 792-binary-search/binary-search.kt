@@ -4,8 +4,8 @@ class Solution {
          var start = 0
         var end = nums.size-1
         while(start<=end){ 
-            var mid : Int = (start+end)/2 
-           // var mid : Int = start + (end - start)/2 
+            //var mid : Int = (start+end)/2 
+         var mid : Int = start + (end - start)/2 
              if(nums[mid] == target){
                  return mid
              } else if(nums[mid]<target){
