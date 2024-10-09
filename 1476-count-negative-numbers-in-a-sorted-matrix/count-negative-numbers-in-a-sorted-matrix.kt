@@ -1,6 +1,5 @@
 class Solution {
     fun countNegatives(grid: Array<IntArray>): Int {
-        
         var result = 0
         for(i in 0..grid.size-1){
             for(j in 0..grid[i].size-1){
@@ -8,7 +7,6 @@ class Solution {
                 result++
         }
     }
- 
     return result
         
     }
