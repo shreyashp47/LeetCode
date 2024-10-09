@@ -15,13 +15,10 @@ class Solution {
              n2++
          }else {
              nums1[k] = nums1[n1]
-             println("${nums1[k]}")
              k++
              n1++
              n2++
          }
-         //println("$n1 $n2")
-         //println("${nums1[n1]} ${nums2[n2]} ") 
          
      }
      
