@@ -1,17 +1,13 @@
 class Solution {
     fun checkIfExist(arr: IntArray): Boolean {
-          for(i in 0..arr.size-1){
-            
-           for(j in 0..arr.size-1)
-           {
-               if(i!=j && arr[i]*2 == arr[j] )
-              {  println("$i - $j "+arr[i]*2)
-                return true
-          
-           }
-           }
-       }
-       
-       return false
-    }
+    var map = HashMap<Int,Int>() 
+     for(i in arr.indices){
+         if(map.containsValue(arr[i]*2) || (map.containsValue(arr[i]/2) && arr[i]%2 == 0)){
+             println("${arr[i]}")
+             return true
+         }
+         map[i] = arr[i]
+     } 
+ return false
+ }
 }
