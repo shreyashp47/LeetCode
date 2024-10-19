@@ -9,9 +9,7 @@ class Solution {
     } 
     var count = 0
     for(i in t.toCharArray()){ 
-        if(!map.containsKey(i) ) 
-        count +=1
-        else if(map.getOrDefault(i,0)<1)
+        if(!map.containsKey(i) || map.getOrDefault(i,0)<1) 
         count +=1
         else map[i] = map.getOrDefault(i,0)-1
     } 
