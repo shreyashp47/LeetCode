@@ -1,30 +1,27 @@
  
 class MinStack() {
-    private val st = Stack<StackElement>()
+      val st = Stack<Int>()
+      val min = Stack<Int>()
  
     fun push(value: Int) { 
-        val currentMin = if (st.isEmpty()) value else minOf(value, st.peek().min)
-        st.push(StackElement(value, currentMin))
+        st.push(value)
+        if(min.isEmpty() || min.peek() >= value){
+            min.push(value)
+        }
     } 
     fun pop() { 
-        if (st.isNotEmpty()) {
-            st.pop()
-        }
+       val p = st.pop()
+       if(p == min.peek()){
+        min.pop()
+       }
     }
  
     fun top(): Int {
-        if (st.isNotEmpty()) {
-            return st.peek().data
-        }
-        throw NoSuchElementException("Stack is empty")
+       return st.peek()
     }
  
     fun getMin(): Int {
-        if (st.isNotEmpty()) {
-            return st.peek().min
-        }
-        throw NoSuchElementException("Stack is empty")
+         return min.peek()
     }
 }
- 
-class StackElement(val data: Int, val min: Int)
+  
