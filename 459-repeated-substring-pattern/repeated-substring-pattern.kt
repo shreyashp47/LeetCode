@@ -5,10 +5,10 @@ class Solution {
          if(n%i == 0){ 
              var sub = s.substring(0,i)
              var sb = StringBuilder()
-             repeat(n/i){
-                 sb.append(sub)
-             }
-             if(sb.toString().equals(s)) return true
+             val repeated = sub.repeat(n / i)
+                if (repeated == s) {
+                    return true
+                }
          }
      }
      return false
