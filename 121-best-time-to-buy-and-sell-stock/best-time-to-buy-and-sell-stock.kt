@@ -1,20 +1,14 @@
 class Solution {
     fun maxProfit(prices: IntArray): Int {
          if (prices.isEmpty()) return 0
-      var minPrice = Int.MAX_VALUE
-    var maxProfit = 0
-
-    for (price in prices) { 
-        if (price < minPrice) {
-            minPrice = price
-        } else { 
-            val profit = price - minPrice
-            if (profit > maxProfit) {
-                maxProfit = profit
-            }
+    var max = 0
+        var minPrice = prices[0]
+        for (price in prices) {
+            val diff = price - minPrice
+            if (minPrice > price) minPrice = price
+            if (diff > max) max = diff
         }
-    }
 
-    return maxProfit
+        return max
     }
 }
