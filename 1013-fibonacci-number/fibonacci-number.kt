@@ -1,7 +1,6 @@
 class Solution {
-     fun fib(n: Int): Int {
-    var dp = IntArray(n + 1) { -1 }
-    return fibDp(n,dp)
+    fun fib(n: Int): Int {
+        return fibDp(n,IntArray(n + 1) { -1 })
     }
   fun fibDp(n: Int, dp: IntArray): Int {
         if(n == 0 || n==1) return n
