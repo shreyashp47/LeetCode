@@ -1,13 +1,11 @@
 class Solution {
     fun twoSum(nums: IntArray, target: Int): IntArray {
-    var map = HashMap<Int, Int>()
-     for(i in 0..nums.size-1){ 
-         val c =  target - nums[i] 
-         if(map.containsKey(c) ){
-             return intArrayOf(map[c]!!,i)
-         }
-         map[nums[i]] = i
-     } 
-     return intArrayOf() 
+        val map = mutableMapOf<Int, Int>() 
+        nums.forEachIndexed { index, num ->
+            val complement = target - num
+            map[complement]?.let { return intArrayOf(it, index) }
+            map[num] = index
+        }
+        return intArrayOf()
     }
 }
