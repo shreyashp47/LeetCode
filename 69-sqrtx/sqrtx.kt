@@ -1,19 +1,22 @@
 class Solution {
     fun mySqrt(x: Int): Int {
-        if (x == 0) return 0  // Handle the case where x is 0
+ if (x == 0) return 0
+    var l = 1
+    var h = x
+    var ans = 0
 
-        var left = 1
-        var right = x
-        while (left <= right) {
-            val middle = left + (right - left) / 2
-            if (middle == x / middle) {
-                return middle
-            } else if (middle > x / middle) {
-                right = middle - 1
+    while(l<=h){ 
+    val mid = l + (h - l) / 2
+
+        if (mid <= x / mid) { 
+                ans = mid
+                l = mid + 1
             } else {
-                left = middle + 1
-            }
+           h = mid -1
         }
-        return right
+    }
+    return ans
+
+        
     }
 }
