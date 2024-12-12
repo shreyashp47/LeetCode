@@ -13,8 +13,6 @@ class Solution {
         for(i in pq){
             sum = sum+i
         }
-    
-    
     return sum
     }
 }
