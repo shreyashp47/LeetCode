@@ -4,8 +4,7 @@ class Solution {
         
         for(i in 0..nums.size -1 ){ 
             if(nums[i] != `val`){
-                nums[count] = nums[i]
-                count++
+                nums[count++] = nums[i]
             }
         } 
         return count
