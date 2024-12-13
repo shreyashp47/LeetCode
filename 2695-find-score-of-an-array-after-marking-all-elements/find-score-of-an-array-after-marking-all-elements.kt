@@ -1,6 +1,6 @@
 class Solution {
     fun findScore(nums: IntArray): Long {
-         var n = nums.size
+    var n = nums.size
      val copy = Array(n) { IntArray(2) }
      for( i in 0..n-1){
         copy[i][0] = nums[i]
