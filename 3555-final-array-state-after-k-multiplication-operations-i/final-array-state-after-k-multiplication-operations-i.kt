@@ -1,19 +1,19 @@
 class Solution {
     fun getFinalState(nums: IntArray, k: Int, multiplier: Int): IntArray {
-         
-        val minHeap = PriorityQueue<Pair<Int, Int>>(compareBy<Pair<Int, Int>> { it.second }.thenBy { it.first })
+       var numsCopy = nums.copyOf()
 
-          
-         for (i in nums.indices) {
-            minHeap.offer(i to nums[i])
+        for(i in 0 until k){
+            var minIndex = 0
+
+            for(j in 1 until numsCopy.size){
+                if(numsCopy[j] < numsCopy[minIndex]){
+                    minIndex = j
+                }
             }
-        for (i in 1..k) {
-            val min = minHeap.poll()
-            val newValue = min.second * multiplier
-            nums[min.first] = newValue
-            minHeap.offer(min.first to newValue)
+
+            numsCopy[minIndex] *= multiplier
         }
-         
-         return nums
+
+        return numsCopy
     }
 }
