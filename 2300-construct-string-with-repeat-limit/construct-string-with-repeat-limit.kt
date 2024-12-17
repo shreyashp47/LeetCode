@@ -1,36 +1,42 @@
 class Solution {
     fun repeatLimitedString(s: String, repeatLimit: Int): String {
-        val chars = s.toCharArray()
-        chars.sort() // Sort the characters
-        val result = StringBuilder()
-        var freq = 1
-        var pointer = chars.size - 1
-
-        for (i in chars.indices.reversed()) {
-            if (result.isNotEmpty() && result.last() == chars[i]) {
-                if (freq < repeatLimit) {
-                    result.append(chars[i])
-                    freq++
-                } else {
-                    while (pointer >= 0 && (chars[pointer] == chars[i] || pointer > i)) {
-                        pointer--
-                    }
-
-                    if (pointer >= 0) {
-                        result.append(chars[pointer])
-                        val temp = chars[i]
-                        chars[i] = chars[pointer]
-                        chars[pointer] = temp
-                        freq = 1
-                    } else {
-                        break
-                    }
+       val result = IntArray(26){0}
+        for(count in 0..s.length-1) {
+            result[s[count]-'a']++
+        }
+        var i = 25
+        var j = i
+        var count = 0
+        var ans = StringBuilder("")
+        while(i>=0 && j>=0) {
+            while(i>=0 && result[i]==0) {
+                i--
+            }
+            if(i<0) {
+                continue
+            }
+            // println("i = $i, j = $j, count = $count, ans = ${ans.toString()}")
+            if(count<repeatLimit) {
+                ans.append((i+'a'.toInt()).toChar())
+                result[i]--
+                if(result[i]==0) {
+                    count = 0
+                }else {
+                    count++
                 }
-            } else {
-                result.append(chars[i])
-                freq = 1
+            }else {
+                j = i-1
+                while(j>=0 && result[j]==0) {
+                    j--
+                }
+                if(j<0) {
+                    continue
+                }
+                ans.append((j+'a'.toInt()).toChar())
+                result[j]--
+                count = 0
             }
         }
-        return result.toString()
+        return ans.toString()
     }
 }
