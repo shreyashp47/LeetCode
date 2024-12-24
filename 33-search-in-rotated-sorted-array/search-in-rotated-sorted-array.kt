@@ -6,9 +6,6 @@ class Solution {
       while(l<=h){
           var mid = l + (h-l)/2
           if(nums[mid] == target) return mid
-          if(nums[l] == target) return l
-          if(nums[h] == target) return h
-          
            if (nums[l] <= nums[mid]) {
  			if (target >= nums[l] && target < nums[mid]) {
                 h = mid - 1
