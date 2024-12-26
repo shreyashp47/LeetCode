@@ -2,9 +2,10 @@ class Solution {
     fun productExceptSelf(nums: IntArray): IntArray {
          var n = nums.size
        val result = IntArray(n) { 0 }
-		result[0] = 1;
-        for (i in 1..n-1) {
-            result[i] = result[i - 1] * nums[i - 1];
+        var mul = 1
+        for (i in 0..n-1) {
+             result[i] = mul
+            mul*=nums[i] 
         }
        
         var right = 1
