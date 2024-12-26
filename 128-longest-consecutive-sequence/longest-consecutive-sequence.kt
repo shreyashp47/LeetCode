@@ -1,31 +1,28 @@
 class Solution {
     fun longestConsecutive(nums: IntArray): Int {
-        
         if(nums.size == 0)
             return  0
-        var longest = 1
-        
-        var map = HashSet<Int>()
-        for(i in nums){
-            map.add(i)
+       var map = HashMap<Int,Int>()
+     var min = -1
+     var count = 0 
+     for(i in nums){
+         map[i] = 1
+         min = Math.min(min,i)
+     }
+     
+     for(i in map){
+
+        if(map.getOrDefault(i.key-1,0)==0){
+        var ct = 1
+         var x = i.key
+         while(map.getOrDefault(x +1,0) > 0){
+             ct = ct+1
+             x++
+         }
+         count = Math.max(ct,count)
+         
         }
-
-        for(i in map){
-
-            if(!map.contains(i-1)){
-                var count = 1
-                var x = i
-                while(map.contains(x+1)){
-                    count = count +1
-                    x = x+1
-
-                }
-            longest = Math.max(longest,count)
-            }
-        }
-
-
-
-        return longest
+     }
+     return count
     }
 }
