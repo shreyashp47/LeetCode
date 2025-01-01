@@ -14,7 +14,7 @@ class Solution {
         var node = head
         var map = HashMap<ListNode,Int>()
         while(node!=null){
-            if(map.containsKey(node)) return true
+            if(map.containsKey(node.next)) return true
 
             map[node] = node.`val`
             node = node.next
