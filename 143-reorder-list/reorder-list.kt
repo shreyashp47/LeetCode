@@ -9,6 +9,7 @@
  */
 class Solution {
     fun reorderList(head: ListNode?): Unit {
+         if(head == null || head.next == null) return
        var slow = head
        var fast = head
 
