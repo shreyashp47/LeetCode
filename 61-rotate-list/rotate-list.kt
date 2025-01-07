@@ -20,7 +20,6 @@ class Solution {
 
         var rotation = k % size //Calculate the effective rotations needed
         if(rotation == 0) return head
-        println("$rotation $size")
 
         var slow = head
         var fast = head
@@ -32,11 +31,6 @@ class Solution {
             slow = slow?.next
             fast = fast.next
         }
-
-        println( " "+ slow?.next?.`val`+
-        " " +fast?.next?.`val`
-
-        )
 
         val ans = slow?.next
         slow?.next = null
