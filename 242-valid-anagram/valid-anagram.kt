@@ -9,7 +9,7 @@ class Solution {
         }
         for(i in 0..t.length-1){
 
-            if(!map.containsKey(t[i]) || map.getOrDefault(t[i],0)==0)
+            if(map.getOrDefault(t[i],0)==0)
             return false
             else map[t[i]] = map.getOrDefault(t[i],0)-1
         }
