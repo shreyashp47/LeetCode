@@ -1,8 +1,6 @@
 class Solution {
     fun removeDuplicates(nums: IntArray): Int {
-      if (nums.size <= 2) return nums.size
-  
-     var num = nums[0]  // nums.length >= 1
+    var num = nums[0]  // nums.length >= 1
      var count = 0
      var j = 0
 
