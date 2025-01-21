@@ -11,13 +11,11 @@
 class Solution {
     fun isSameTree(p: TreeNode?, q: TreeNode?): Boolean {
         if(p==null && q==null) return true
-        if(p==null || q == null) return false
-        if(p.`val` != q.`val`)  return false 
-        else { return (isSameTree(p.left,q.left) && isSameTree(p.right,q.right))}
-
-        
+        else if(p==null || q==null) return false
+        else if(p.`val` != q.`val`) return false
+        else {
+            return isSameTree(p.left,q.left) && isSameTree(p.right,q.right) 
+        }
         
     }
-
-  
 }
