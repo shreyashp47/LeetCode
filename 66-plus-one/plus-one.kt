@@ -1,6 +1,6 @@
 class Solution {
     fun plusOne(digits: IntArray): IntArray {
-
+        
         for(i in digits.size - 1 downTo 0){
             if(digits[i]!=9){
                 digits[i]++
@@ -10,8 +10,7 @@ class Solution {
         }        
 
         val result = IntArray(digits.size + 1)
-        result[0] = 1 // Set the first digit to 1 and the rest are 0s
+        result[0] = 1  
         return result
-        
     }
 }
