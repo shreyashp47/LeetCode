@@ -1,6 +1,6 @@
 class Solution {
     fun mergeAlternately(word1: String, word2: String): String {
-        var w1 = 0
+           var w1 = 0
         var w2 = 0 
         
         var ans = StringBuilder()
@@ -12,6 +12,5 @@ class Solution {
         }
 
         return ans.toString()
-
     }
 }
