@@ -1,13 +1,14 @@
 class Solution {
     fun isSubsequence(s: String, t: String): Boolean {
-        var i = 0
-        var j = 0 
-        while( i < s.length && j < t.length){
-            if(s[i]==t[j]){
-                i++
-            }
-            j++
+        var sPt = 0
+        var tPt = 0 
+
+        while(sPt<s.length && tPt<t.length ){
+             if(s[sPt]== t[tPt]){
+                sPt++
+             }
+             tPt++
         }
-        return  i == s.length
+        return sPt == s.length
     }
 }
