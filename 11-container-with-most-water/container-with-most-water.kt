@@ -1,15 +1,18 @@
 class Solution {
     fun maxArea(height: IntArray): Int {
-        var ans = 0
-        var left = 0
+          var left = 0
         var right = height.size - 1
+        var maxArea = 0
 
-        while(left<right){
-            var min = Math.min(height[left], height[right])
-            ans = Math.max(ans, min * (right-left))
-            if(height[left] > height[right]) right--
-            else left ++
+        while (left < right) {
+            maxArea = max(maxArea, (right - left) * min(height[left], height[right]))
+            if (height[left] <= height[right]) {
+                left++
+            } else {
+                right--
+            }
         }
-        return ans
+
+        return maxArea
     }
 }
