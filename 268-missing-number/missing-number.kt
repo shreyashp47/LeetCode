@@ -1,13 +1,12 @@
 class Solution {
     fun missingNumber(nums: IntArray): Int {
-        val set :MutableSet<Int> = mutableSetOf()
-        for(i in nums){
-            set.add(i)
-        }
-        for(i in 0..set.size){
-            if(!set.contains(i)) return i
-        }
-        return 0
+         var n = nums.size
+         var sum = 0 
+         for(i in nums){
+            sum = sum + i
+         }
+          var allSum = n * (n+1) / 2
+         return allSum - sum
         
     }
 }
